@@ -1,0 +1,37 @@
+﻿@model Vidly.ModelView.CustomersModelView
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 >Customers</h2>
+@if(Model.Customers.Count == 0)
+{
+    <h5>Sorry We Don't Have any Customer yet</h5>
+}
+else
+{
+    <table class="table table-­‐bordered table-­‐hover">
+        <thead>
+            <tr class="table-dark">
+                <th scope="col"> Customer ID </th>
+                <th scope="col"> Customer Name</th>
+            </tr>
+        </thead>
+        @foreach (var customer in Model.Customers)
+        {
+            <tr>
+                <td>
+                    @customer.Id
+                </td>
+                <td>
+                    @Html.ActionLink(@customer.Name,
+                "Details",
+                new { id = @customer.Id },
+                "Customers")
+                </td>
+            </tr>
+
+        }
+    </table>
+}
