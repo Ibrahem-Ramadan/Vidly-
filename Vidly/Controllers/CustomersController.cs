@@ -19,9 +19,9 @@ namespace Vidly.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-
-            var modelView = new CustomersModelView { Customers = customers };
-            return View(modelView);
+            var CustomerModel = new List<Customer> { };
+            CustomerModel = customers;
+            return View(CustomerModel);
         }
         
         [Route("Customers/Details/{id}")]
