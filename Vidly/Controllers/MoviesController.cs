@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -11,24 +12,25 @@ namespace Vidly.Controllers
     public class MoviesController : Controller
     {
         // GET: Movies/Random
-        List<Movie> movies = new List<Movie>{
-            new Movie{id = 1 , name = "Shrek!" , Type = "Comedy"},
-            new Movie{id = 2 , name = "Wall-e" , Type = "Science Fiction"}
-        };
+
+        private ApplicationDbContext _context;
+
+        public MoviesController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+        
         public ActionResult Random()
         {
-            var movie = new Movie() { name = "Ztopia" };
-            var customers = new List<Customer> { 
-            
-                new Customer {Name = "Customer 1"},
-                new Customer {Name = "Customer 2"}
-            
-            };
-
             var viewModel = new RondomMovieViewModel
             { 
-                Movie = movie,
-                Customers = customers
+                Movie = _context.Movies.ToList().ElementAt(0),
+                Customers = _context.Customers.ToList()
             };
 
             return View(viewModel);
@@ -42,8 +44,18 @@ namespace Vidly.Controllers
 
         public ActionResult Index()
         {
-
+            var movies = _context.Movies.Include(G => G.Genre).ToList();
             return View(movies);
+        }
+
+        [Route("Movies/Details/{id}")]
+        public ActionResult Details(int id)
+        {
+            if (_context.Movies.ToList().Count < id || id <= 0)
+                return HttpNotFound();
+
+            var movie =  _context.Movies.Include(G => G.Genre).ToList().ElementAtOrDefault(id-1);
+            return View(movie);
         }
         
         [Route("movies/release/{year}/{month:regex(\\d{2}):range(1,12)}")]

@@ -17,22 +17,19 @@ else
     <table class="table table-­‐bordered table-­‐hover">
         <thead>
             <tr class="table-dark">
-                <th scope="col"> Movie ID </th>
                 <th scope="col"> Movie Name</th>
-                <th scope="col"> Movie Type</th>
+                <th scope="col"> Genre </th>
+    
             </tr>
         </thead>
         @foreach (var movie in @Model)
         {
             <tr>
                 <td>
-                    @movie.id
+                    @Html.ActionLink(@movie.name,"Details",new {id = @movie.id},"Movies")
                 </td>
                 <td>
-                    @movie.name
-                </td>
-                <td>
-                    @movie.Type
+                    @movie.Genre.Value
                 </td>
             </tr>
 

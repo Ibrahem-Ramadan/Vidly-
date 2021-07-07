@@ -209,9 +209,26 @@
     <Compile Include="Migrations\202107071617133_UpdateBirthDatePropertyToBeNullable2.Designer.cs">
       <DependentUpon>202107071617133_UpdateBirthDatePropertyToBeNullable2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107071747065_AddGenreTable.cs" />
+    <Compile Include="Migrations\202107071747065_AddGenreTable.Designer.cs">
+      <DependentUpon>202107071747065_AddGenreTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107071803056_AddGenreTable1.cs" />
+    <Compile Include="Migrations\202107071803056_AddGenreTable1.Designer.cs">
+      <DependentUpon>202107071803056_AddGenreTable1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107071808138_AddNewPropertiesToMovie.cs" />
+    <Compile Include="Migrations\202107071808138_AddNewPropertiesToMovie.Designer.cs">
+      <DependentUpon>202107071808138_AddNewPropertiesToMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107071832535_PopulateGenreData.cs" />
+    <Compile Include="Migrations\202107071832535_PopulateGenreData.Designer.cs">
+      <DependentUpon>202107071832535_PopulateGenreData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -324,6 +341,7 @@
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -362,6 +380,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107071617133_UpdateBirthDatePropertyToBeNullable2.resx">
       <DependentUpon>202107071617133_UpdateBirthDatePropertyToBeNullable2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107071747065_AddGenreTable.resx">
+      <DependentUpon>202107071747065_AddGenreTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107071803056_AddGenreTable1.resx">
+      <DependentUpon>202107071803056_AddGenreTable1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107071808138_AddNewPropertiesToMovie.resx">
+      <DependentUpon>202107071808138_AddNewPropertiesToMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107071832535_PopulateGenreData.resx">
+      <DependentUpon>202107071832535_PopulateGenreData.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
