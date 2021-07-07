@@ -189,6 +189,26 @@
     <Compile Include="Migrations\202107061710540_ApplyAnnotationsToCustomerNeme.Designer.cs">
       <DependentUpon>202107061710540_ApplyAnnotationsToCustomerNeme.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107071455378_AddMembershipTypeName.cs" />
+    <Compile Include="Migrations\202107071455378_AddMembershipTypeName.Designer.cs">
+      <DependentUpon>202107071455378_AddMembershipTypeName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107071458420_AddSqlQueryToInsertMembershipTypeName.cs" />
+    <Compile Include="Migrations\202107071458420_AddSqlQueryToInsertMembershipTypeName.Designer.cs">
+      <DependentUpon>202107071458420_AddSqlQueryToInsertMembershipTypeName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107071600062_AddBirthDatePropertyToCustomer.cs" />
+    <Compile Include="Migrations\202107071600062_AddBirthDatePropertyToCustomer.Designer.cs">
+      <DependentUpon>202107071600062_AddBirthDatePropertyToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107071613407_UpdateBirthDatePropertyToBeNullable.cs" />
+    <Compile Include="Migrations\202107071613407_UpdateBirthDatePropertyToBeNullable.Designer.cs">
+      <DependentUpon>202107071613407_UpdateBirthDatePropertyToBeNullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107071617133_UpdateBirthDatePropertyToBeNullable2.cs" />
+    <Compile Include="Migrations\202107071617133_UpdateBirthDatePropertyToBeNullable2.Designer.cs">
+      <DependentUpon>202107071617133_UpdateBirthDatePropertyToBeNullable2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -327,6 +347,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107061710540_ApplyAnnotationsToCustomerNeme.resx">
       <DependentUpon>202107061710540_ApplyAnnotationsToCustomerNeme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107071455378_AddMembershipTypeName.resx">
+      <DependentUpon>202107071455378_AddMembershipTypeName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107071458420_AddSqlQueryToInsertMembershipTypeName.resx">
+      <DependentUpon>202107071458420_AddSqlQueryToInsertMembershipTypeName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107071600062_AddBirthDatePropertyToCustomer.resx">
+      <DependentUpon>202107071600062_AddBirthDatePropertyToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107071613407_UpdateBirthDatePropertyToBeNullable.resx">
+      <DependentUpon>202107071613407_UpdateBirthDatePropertyToBeNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107071617133_UpdateBirthDatePropertyToBeNullable2.resx">
+      <DependentUpon>202107071617133_UpdateBirthDatePropertyToBeNullable2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

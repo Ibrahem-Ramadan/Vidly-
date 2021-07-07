@@ -5,4 +5,14 @@
 }
 
 <h2>@Model.Name</h2>
+<ul>
+    <li>MembershipType: @Model.MembershipType.Name</li>
+    @if (@Model.BirthDate != null)
+    {
+        <li>BirthDate: @Model.BirthDate.ToString().Split(' ')[0]</li>
+    }
+    
+</ul>
+
+
 

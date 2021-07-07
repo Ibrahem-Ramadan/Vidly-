@@ -34,7 +34,7 @@ namespace Vidly.Controllers
         [Route("Customers/Details/{id}")]
         public ActionResult Details(int id)
         {
-            var CustomerList = _context.Customers.ToList();
+            var CustomerList = _context.Customers.Include(c => c.MembershipType).ToList();
             
             if (id > CustomerList.Count || id == 0 )
                 return HttpNotFound();
