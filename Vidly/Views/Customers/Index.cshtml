@@ -26,7 +26,7 @@ else
                     @customer.Id
                 </td>
                 <td>
-                    @Html.ActionLink(@customer.Name,"Details", new { id = @customer.Id },  "Customers")
+                    @Html.ActionLink(@customer.Name,"Edit", new { id = @customer.Id },  "Customers")
                 </td>
                 <td>
                     @customer.MembershipType.Name
