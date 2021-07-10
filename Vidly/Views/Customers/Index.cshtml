@@ -17,6 +17,7 @@ else
                 <th scope="col"> Customer ID </th>
                 <th scope="col"> Customer Name</th>
                 <th scope="col"> Discount Rate</th>
+                <th scope="col" class="text-right">  </th>
             </tr>
         </thead>
         @foreach (var customer in Model)
@@ -31,8 +32,16 @@ else
                 <td>
                     @customer.MembershipType.Name
                 </td>
+                <td>
+                    <div class="text-right">
+                        <a href="/Customers/Edit/@customer.Id" role="button" class="btn btn-outline-primary ">&nbsp Edit &nbsp </a>
+                        <a href="/Customers/Delete/@customer.Id" onclick="alert('Are You Sure To Delete Customer')" role="button" class="btn btn-outline-danger ">Delete</a>
+                    </div>
+
+                </td>
             </tr>
 
         }
     </table>
 }
+<a href="/Customers/CustomerForm" role="button" class="btn btn-outline-primary btn-block btn-lg">Add New Customer</a>

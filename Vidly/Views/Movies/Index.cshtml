@@ -14,26 +14,34 @@
 }
 else
 {
+
     <table class="table table-­‐bordered table-­‐hover">
         <thead>
             <tr class="table-dark">
                 <th scope="col"> Movie Name</th>
                 <th scope="col"> Genre </th>
-    
+                <th scope="col">&nbsp&nbsp</th>
+
             </tr>
         </thead>
         @foreach (var movie in @Model)
         {
             <tr>
                 <td>
-                    @Html.ActionLink(@movie.name,"Details",new {id = @movie.id},"Movies")
+                    @Html.ActionLink(@movie.name, "Edit", new { id = @movie.id }, "Movies")
                 </td>
                 <td>
                     @movie.Genre.Value
+                </td>
+                <td>
+                    <div class="text-right"> 
+                        <a href="/Movies/Edit/@movie.id" role="button" class="btn t btn-outline-primary ">&nbsp Edit &nbsp </a>
+                        <a href="/Movies/Delete/@movie.id" role="button" onclick="alert('Are You Sure To Delete Movie')" class="btn    btn-outline-danger ">Delete</a>
+                    </div>
                 </td>
             </tr>
 
         }
     </table>
 }
-
+<a class="btn btn-outline-primary btn-lg btn-block" href="/Movies/NewMovie" role="button" >Add New Movie</a>

@@ -36,12 +36,6 @@ namespace Vidly.Controllers
             return View(viewModel);
         }
 
-        public ActionResult Edit(int id)
-        {
-            return Content("id = "+ id);
-        }
-
-
         public ActionResult Index()
         {
             var movies = _context.Movies.Include(G => G.Genre).ToList();
@@ -62,6 +56,56 @@ namespace Vidly.Controllers
         public ActionResult ByReleaseDate(int year , int month)
         {
             return Content(year+"/"+month);
+        }
+
+        public ActionResult NewMovie()
+        {
+            var MovieViewModel = new MovieFormViewModel
+            {
+                Genres = _context.Genres
+            };
+            return View("MovieForm",MovieViewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Save(Movie Movie)
+        {
+            Movie.DateAdded = DateTime.Now.Date;
+
+            if (Movie.id == 0)
+            {
+                _context.Movies.Add(Movie);
+            }
+            else
+            {
+                var movieInDb = _context.Movies.Single(m => m.id == Movie.id);
+                movieInDb.name = Movie.name;
+                movieInDb.ReleaseDate = Movie.ReleaseDate;
+                movieInDb.GenreId = Movie.GenreId; 
+                movieInDb.DateAdded = Movie.DateAdded;
+                movieInDb.NumberInStock = Movie.NumberInStock;
+
+            }
+            _context.SaveChanges();
+            return View("Index",_context.Movies.Include(G => G.Genre).ToList());
+        }
+        public ActionResult Edit(int id)
+        {
+            var movieInDB = _context.Movies.Single(m => m.id == id);
+            var movieFormVm = new MovieFormViewModel
+            {
+               Movie = movieInDB,
+               Genres = _context.Genres
+            };
+            return View("MovieForm",movieFormVm);
+        }
+        public ActionResult Delete(int id)
+        {
+
+            var MovieToBeDeleted = _context.Movies.Single(c => c.id == id);
+            _context.Movies.Remove(MovieToBeDeleted);
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Movies");
         }
       
     }

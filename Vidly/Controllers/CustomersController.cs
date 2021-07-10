@@ -2,10 +2,12 @@
 using System.Data.Entity;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
 using Vidly.ModelView;
+using System.Web.UI;
 
 namespace Vidly.Controllers
 {
@@ -57,6 +59,17 @@ namespace Vidly.Controllers
         [HttpPost]
         public ActionResult Save(Customer customer)
         {
+            if(!ModelState.IsValid)
+            {
+                var viewModel = new CustomerFormViewModel{
+                
+                    Customer = customer,
+                    MembershipTypes = _context.MembershipTypes.ToList()
+                
+                };
+                return View("CustomerForm",viewModel);
+            }
+
             if(customer.Id == 0)
                 _context.Customers.Add(customer);
             else
@@ -87,6 +100,15 @@ namespace Vidly.Controllers
             };
 
             return View("CustomerForm",customerViewModel);
+        }
+
+        public ActionResult Delete(int id)
+        {
+
+            var cutomerToBeDeleted = _context.Customers.Single(c => c.Id == id);
+            _context.Customers.Remove(cutomerToBeDeleted);
+            _context.SaveChanges();
+            return RedirectToAction("Index","Customers");
         }
     }
 }
