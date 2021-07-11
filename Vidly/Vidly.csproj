@@ -233,6 +233,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\_18YearsValidationIfAMember.cs" />
     <Compile Include="ModelView\CustomerFormViewModel.cs" />
     <Compile Include="ModelView\MovieFormViewModel.cs" />
     <Compile Include="ModelView\RondomMovieViewModel.cs" />
