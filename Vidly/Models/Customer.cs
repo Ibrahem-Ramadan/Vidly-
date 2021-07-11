@@ -24,5 +24,7 @@ namespace Vidly.Models
         [Display(Name = "Date Of Birth")]
         [_18YearsValidationIfAMember]
         public System.Nullable<DateTime> BirthDate { get; set; }
+
+
     }
 }

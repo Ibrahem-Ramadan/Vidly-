@@ -19,5 +19,8 @@ namespace Vidly.Models
         [StringLength(20)]
         public string Name { get; set; }
 
+        //Refactoring Magic Numbers
+        public static readonly byte UnKnown = 0;
+        public static readonly byte PayAsYouGo = 1;
     }
 }
