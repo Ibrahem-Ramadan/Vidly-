@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 @if (@ViewContext.RouteData.Values["action"].ToString() == "Edit")
 {
     <h2>Edit Movie</h2>
@@ -18,21 +19,31 @@ else
     <div class="form-group">
         @Html.LabelFor(m => m.Movie.name)
         @Html.TextBoxFor(m => m.Movie.name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Movie.name)
+       
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Movie.ReleaseDate)
-        @Html.TextBoxFor(m => m.Movie.ReleaseDate,"{0:d MMM yyyy}", new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Movie.ReleaseDate, "{0:d MMM yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Movie.ReleaseDate)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Movie.GenreId)
         @Html.DropDownListFor(m => m.Movie.GenreId, new SelectList(Model.Genres, "Id", "Value"), "Select Movie Genre", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Movie.GenreId)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Movie.NumberInStock)
         @Html.TextBoxFor(m => m.Movie.NumberInStock, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Movie.NumberInStock)
     </div>
-    
-    @Html.HiddenFor(m => m.Movie.id)
 
+    @Html.HiddenFor(m => m.Movie.id)
+    @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-outline-primary btn-lg w-25">Save Movie</button>
+}
+
+@section scripts{
+
+    @Scripts.Render("~/bundles/jqueryval")
 }

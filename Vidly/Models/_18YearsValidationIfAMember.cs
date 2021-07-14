@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Vidly.Models
 {
-    public class _18YearsValidationIfAMember : ValidationAttribute
+   
+    public class _18YearsValidationIfAMember : ValidationAttribute 
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
